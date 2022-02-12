@@ -9,8 +9,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  let tSum = a + b;
-  return [tSum, `The sum of ${a} and ${b} is ${tSum}.`];
+
+  return [a + b, `The sum of ${a} and ${b} is ${a + b}.`];
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -136,11 +136,22 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
-function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
+function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  let product = 0;
+
+  for(let i = 0; i < dynamicArray.length; i++) {
+    if(i === 0){
+      product = dynamicArray[0];
+    } else {
+      product = multiply(product, dynamicArray[i])[0];
+    }
+  }
+  return [product, `The numbers ${dynamicArray} have a product of ${product}.`];
 }
 
+
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
